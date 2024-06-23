@@ -1,7 +1,6 @@
-
 #[cfg(test)]
 mod tests {
-use crate::tokenizer;
+    use crate::tokenizer;
 
     #[test]
     fn simple_string() {
@@ -40,7 +39,10 @@ use crate::tokenizer;
         assert_eq!(output.len(), 4);
         assert_eq!(output[0].name, "div");
         assert_eq!(output[0].tag_type, tokenizer::TagType::Open);
-        assert_eq!(output[0].attributes, Some(String::from("data-testid='bonjour' class='w-4'")));
+        assert_eq!(
+            output[0].attributes,
+            Some(String::from("data-testid='bonjour' class='w-4'"))
+        );
         assert_eq!(output[0].content, None);
         assert_eq!(output[0].token_type, tokenizer::TokenType::Tag);
 
@@ -78,7 +80,12 @@ use crate::tokenizer;
         assert_eq!(output[1].token_type, tokenizer::TokenType::Text);
         assert_eq!(output[1].attributes, None);
         assert_ne!(output[1].content, None);
-        assert_eq!(output[1].content, Some(String::from("of\n                                                        liquid")));
+        assert_eq!(
+            output[1].content,
+            Some(String::from(
+                "of\n                                                        liquid"
+            ))
+        );
 
         assert_eq!(output[2].name, "span");
         assert_eq!(output[2].tag_type, tokenizer::TagType::Close);
