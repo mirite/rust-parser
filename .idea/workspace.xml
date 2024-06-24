@@ -78,9 +78,13 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "settings.editor.selected.configurable": "language.rust.cargo.check",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RsExternalLinterProjectSettings">
+    <option name="tool" value="Clippy" />
+  </component>
   <component name="RunManager" selected="Cargo.Test tests::tests">
     <configuration name="Test tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tests" />
@@ -153,14 +157,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test tests::tests" />
-        <item itemvalue="Cargo.Test tests::tests::unmatched_tags" />
         <item itemvalue="Cargo.Test tests::tests::simple_string" />
+        <item itemvalue="Cargo.Test tests::tests::unmatched_tags" />
         <item itemvalue="Cargo.Test tests::tests::it_works" />
       </list>
     </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
+  </component>
+  <component name="RustfmtProjectSettings">
+    <option name="useRustfmt" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -172,7 +179,7 @@
       <updated>1719170004679</updated>
       <workItem from="1719170005836" duration="55000" />
       <workItem from="1719170076659" duration="12518000" />
-      <workItem from="1719184499066" duration="2935000" />
+      <workItem from="1719184499066" duration="3056000" />
     </task>
     <servers />
   </component>
