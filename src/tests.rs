@@ -185,4 +185,76 @@ mod tests {
         ];
         check_result(input, expected);
     }
+
+    #[test]
+    fn leading_text() {
+        let input = "Hello<div>World</div>";
+        let expected = vec![
+            types::Token {
+                name: "text".to_string(),
+                tag_type: None,
+                attributes: None,
+                content: Some("Hello".to_string()),
+                token_type: types::TokenType::Text,
+            },
+            types::Token {
+                name: "div".to_string(),
+                tag_type: Some(types::TagType::Open),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
+            },
+            types::Token {
+                name: "text".to_string(),
+                tag_type: None,
+                attributes: None,
+                content: Some("World".to_string()),
+                token_type: types::TokenType::Text,
+            },
+            types::Token {
+                name: "div".to_string(),
+                tag_type: Some(types::TagType::Close),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
+            },
+        ];
+        check_result(input, expected);
+    }
+
+    #[test]
+    fn trailing_text() {
+        let input = "<div>World</div>Hello";
+        let expected = vec![
+            types::Token {
+                name: "div".to_string(),
+                tag_type: Some(types::TagType::Open),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
+            },
+            types::Token {
+                name: "text".to_string(),
+                tag_type: None,
+                attributes: None,
+                content: Some("World".to_string()),
+                token_type: types::TokenType::Text,
+            },
+            types::Token {
+                name: "div".to_string(),
+                tag_type: Some(types::TagType::Close),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
+            },
+            types::Token {
+                name: "text".to_string(),
+                tag_type: None,
+                attributes: None,
+                content: Some("Hello".to_string()),
+                token_type: types::TokenType::Text,
+            },
+        ];
+        check_result(input, expected);
+    }
 }
