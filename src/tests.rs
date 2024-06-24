@@ -1,45 +1,45 @@
 #[cfg(test)]
 mod tests {
-    use crate::tokenizer;
+    use crate::{tokenizer, types};
 
     #[test]
     fn simple_string() {
         let input = "<div>Hello</div><img/>";
         let expected = vec![
-            tokenizer::Token {
+            types::Token {
                 name: "div".to_string(),
-                tag_type: Some(tokenizer::TagType::Open),
+                tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "div".to_string(),
-                tag_type: Some(tokenizer::TagType::Close),
+                tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "img".to_string(),
-                tag_type: Some(tokenizer::TagType::Void),
+                tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
         ];
 
         check_result(input, expected);
     }
 
-    fn check_result(input: &str, expected: Vec<tokenizer::Token>) {
+    fn check_result(input: &str, expected: Vec<types::Token>) {
         let output = tokenizer::tokenize(input);
         assert_eq!(output.len(), expected.len());
         for i in 0..output.len() {
@@ -51,33 +51,33 @@ mod tests {
     fn attributes() {
         let input = "<div data-testid='bonjour' class='w-4'>Hello</div><img>";
         let expected = vec![
-            tokenizer::Token {
+            types::Token {
                 name: "div".to_string(),
-                tag_type: Some(tokenizer::TagType::Open),
+                tag_type: Some(types::TagType::Open),
                 attributes: Some("data-testid='bonjour' class='w-4'".to_string()),
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "div".to_string(),
-                tag_type: Some(tokenizer::TagType::Close),
+                tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "img".to_string(),
-                tag_type: Some(tokenizer::TagType::Void),
+                tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
         ];
         check_result(input, expected);
@@ -88,26 +88,26 @@ mod tests {
         let input = "<span\n                                                                                style=\"display: block; font-size: 1.5rem; font-weight: 900; text-transform: uppercase; line-height: 0.5rem;\">of\n                                                        liquid</span>";
 
         let expected = vec![
-          tokenizer::Token {
+          types::Token {
               name: "span".to_string(),
-              tag_type: Some(tokenizer::TagType::Open),
+              tag_type: Some(types::TagType::Open),
               attributes: Some("style=\"display: block; font-size: 1.5rem; font-weight: 900; text-transform: uppercase; line-height: 0.5rem;\"".to_string()),
               content: None,
-              token_type: tokenizer::TokenType::Tag,
+              token_type: types::TokenType::Tag,
           },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("of\n                                                        liquid".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "span".to_string(),
-                tag_type: Some(tokenizer::TagType::Close),
+                tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
         ];
         check_result(input, expected);
@@ -118,40 +118,40 @@ mod tests {
         let input = "[et_pb_section]Hello<br>World[/et_pb_section]";
 
         let expected = vec![
-            tokenizer::Token {
+            types::Token {
                 name: "et_pb_section".to_string(),
-                tag_type: Some(tokenizer::TagType::Open),
+                tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "br".to_string(),
-                tag_type: Some(tokenizer::TagType::Void),
+                tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("World".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "et_pb_section".to_string(),
-                tag_type: Some(tokenizer::TagType::Close),
+                tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
         ];
         check_result(input, expected);
@@ -161,26 +161,26 @@ mod tests {
     fn unmatched_tags() {
         let input = "[et_pb_section]Two<One[/et_pb_section]";
         let expected = vec![
-            tokenizer::Token {
+            types::Token {
                 name: "et_pb_section".to_string(),
-                tag_type: Some(tokenizer::TagType::Open),
+                tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "text".to_string(),
                 tag_type: None,
                 attributes: None,
                 content: Some("Two<One".to_string()),
-                token_type: tokenizer::TokenType::Text,
+                token_type: types::TokenType::Text,
             },
-            tokenizer::Token {
+            types::Token {
                 name: "et_pb_section".to_string(),
-                tag_type: Some(tokenizer::TagType::Close),
+                tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
-                token_type: tokenizer::TokenType::Tag,
+                token_type: types::TokenType::Tag,
             },
         ];
         check_result(input, expected);
