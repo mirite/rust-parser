@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tokenizer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +61,8 @@
     "Cargo.Run rust-parser.executor": "Run",
     "Cargo.Test tests::tests.executor": "Run",
     "Cargo.Test tests::tests::it_works.executor": "Run",
+    "Cargo.Test tests::tests::simple_string.executor": "Debug",
+    "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
@@ -115,9 +116,45 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test tests::tests::simple_string" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tests::tests::simple_string -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::tests::unmatched_tags" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tests::tests::unmatched_tags -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test tests::tests" />
+        <item itemvalue="Cargo.Test tests::tests::unmatched_tags" />
+        <item itemvalue="Cargo.Test tests::tests::simple_string" />
         <item itemvalue="Cargo.Test tests::tests::it_works" />
       </list>
     </recent_temporary>
@@ -134,7 +171,8 @@
       <option name="presentableId" value="Default" />
       <updated>1719170004679</updated>
       <workItem from="1719170005836" duration="55000" />
-      <workItem from="1719170076659" duration="10630000" />
+      <workItem from="1719170076659" duration="12518000" />
+      <workItem from="1719184499066" duration="2935000" />
     </task>
     <servers />
   </component>
@@ -146,5 +184,12 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CargoCommandRunConfiguration">
+        <watch expression="buffer" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

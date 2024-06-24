@@ -13,6 +13,7 @@ pub enum TokenType {
     Text,
 }
 
+#[derive(PartialEq, Debug)]
 pub struct Token {
     pub(crate) name: String,
     pub(crate) tag_type: Option<TagType>,
@@ -87,9 +88,30 @@ fn create_tag_node(buffer: &Vec<char>) -> Token {
     }
 }
 
-fn is_tag_close(buffer: &Vec<char>) -> bool {
-    (buffer[0] == '<' && buffer[buffer.len() - 1] == '>')
-        || (buffer[0] == '[' && buffer[buffer.len() - 1] == ']')
+fn is_tag_close(buffer: &Vec<char>, last_char: char) -> bool {
+    let first_char = buffer[0];
+    (first_char == '<' && last_char == '>') || (first_char == '[' && last_char == ']')
+}
+
+fn is_tag_open(character: char) -> bool {
+    character == '<' || character == '['
+}
+
+fn merge_text_nodes(mut tokens: Vec<Token>) -> Vec<Token> {
+    let mut index = 0;
+    while index < tokens.len() {
+        if tokens[index].token_type == TokenType::Text {
+            let mut text = tokens[index].content.clone().unwrap();
+            let next_index = index + 1;
+            while next_index < tokens.len() && tokens[next_index].token_type == TokenType::Text {
+                text.push_str(&tokens[next_index].content.clone().unwrap());
+                tokens.remove(next_index);
+            }
+            tokens[index].content = Some(text);
+        }
+        index += 1;
+    }
+    tokens
 }
 
 pub fn tokenize(input: &str) -> Vec<Token> {
@@ -101,9 +123,9 @@ pub fn tokenize(input: &str) -> Vec<Token> {
     let mut index = 0;
     let mut tokens = vec![];
     while index < input.len() {
-        let c = input.chars().nth(index).unwrap();
+        let ch = input.chars().nth(index).unwrap();
         if mode == Mode::Text {
-            if c == '<' || c == '[' {
+            if is_tag_open(ch) {
                 mode = Mode::Tag;
                 if buffer.len() > 0 {
                     tokens.push(create_text_node(&buffer));
@@ -111,24 +133,37 @@ pub fn tokenize(input: &str) -> Vec<Token> {
                 }
             }
         } else if mode == Mode::Tag {
-            if is_tag_close(&buffer) {
+            // // A tag was opened, but a new tag was started. Treat the previous tag as text.
+            if is_tag_open(ch) {
                 mode = Mode::Text;
+                if buffer.len() > 0 {
+                    tokens.push(create_text_node(&buffer));
+                    buffer.clear();
+                }
+            } else if is_tag_close(&buffer, ch) {
+                mode = Mode::Text;
+                buffer.push(ch);
+
+                index += 1;
                 tokens.push(create_tag_node(&buffer));
                 buffer.clear();
             }
         }
 
-        buffer.push(input.chars().nth(index).unwrap());
+        if index < input.len() {
+            buffer.push(input.chars().nth(index).unwrap());
+        }
 
         index += 1;
     }
 
     if buffer.len() > 0 {
-        if is_tag_close(&buffer) {
+        if is_tag_close(&buffer, buffer[buffer.len() - 1]) {
             tokens.push(create_tag_node(&buffer));
         } else {
             tokens.push(create_text_node(&buffer));
         }
     }
-    tokens
+
+    merge_text_nodes(tokens)
 }
