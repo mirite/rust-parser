@@ -9,9 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tokenizer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,8 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Cargo.Run rust-parser.executor": "Run",
-    "Cargo.Test tests::tests.executor": "Run",
+    "Cargo.Test tests::tests.executor": "Debug",
+    "Cargo.Test tests::tests::comments.executor": "Debug",
     "Cargo.Test tests::tests::it_works.executor": "Run",
     "Cargo.Test tests::tests::simple_string.executor": "Debug",
     "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
@@ -89,6 +88,23 @@
   <component name="RunManager" selected="Cargo.Test tests::tests">
     <configuration name="Test tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::tests::comments" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tests::tests::comments -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -158,6 +174,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test tests::tests" />
+        <item itemvalue="Cargo.Test tests::tests::comments" />
         <item itemvalue="Cargo.Test tests::tests::simple_string" />
         <item itemvalue="Cargo.Test tests::tests::unmatched_tags" />
         <item itemvalue="Cargo.Test tests::tests::it_works" />
@@ -182,7 +199,7 @@
       <workItem from="1719170076659" duration="12518000" />
       <workItem from="1719184499066" duration="3206000" />
       <workItem from="1719266638518" duration="168000" />
-      <workItem from="1719266812148" duration="2107000" />
+      <workItem from="1719266812148" duration="4116000" />
     </task>
     <servers />
   </component>
@@ -196,6 +213,20 @@
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/tokenizer.rs</url>
+          <line>65</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/tokenizer.rs</url>
+          <line>139</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CargoCommandRunConfiguration">
         <watch expression="buffer" />

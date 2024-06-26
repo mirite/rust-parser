@@ -45,24 +45,38 @@ fn create_tag_node(buffer: &Vec<char>) -> Token {
 
     let tag_type = if buffer[1] == '/' {
         TagType::Close
+    } else if buffer[1] == '!' && buffer[2] == '-' && buffer[3] == '-' {
+        TagType::Comment
     } else if VOID_TAGS.contains(&tag_name.as_str()) {
         TagType::Void
     } else {
         TagType::Open
     };
 
-    let attributes = if let Some(space) = first_space {
+    let attributes = if tag_type == TagType::Comment {
+        None
+    } else if let Some(space) = first_space {
         let val: Option<String> = Some(buffer[space + 1..buffer.len() - 1].iter().collect());
         Some(String::from(val.unwrap().trim()))
     } else {
         None
     };
+
+    let content = if tag_type == TagType::Comment {
+        Some(buffer[4..buffer.len() - 3].iter().collect())
+    } else {
+        None
+    };
+
     Token {
-        name: Some(tag_name),
+        name: match tag_type {
+            TagType::Comment => None,
+            _ => Some(tag_name),
+        },
         tag_type: Some(tag_type),
         attributes,
         token_type: TokenType::Tag,
-        content: None,
+        content,
     }
 }
 
