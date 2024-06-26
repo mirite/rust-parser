@@ -12,7 +12,7 @@ const VOID_TAGS: [&str; 10] = [
 
 fn create_text_node(buffer: &Vec<char>) -> Token {
     Token {
-        name: String::from("text"),
+        name: Some(String::from("text")),
         token_type: TokenType::Text,
         content: Some(buffer.iter().collect()),
         tag_type: None,
@@ -58,7 +58,7 @@ fn create_tag_node(buffer: &Vec<char>) -> Token {
         None
     };
     Token {
-        name: tag_name,
+        name: Some(tag_name),
         tag_type: Some(tag_type),
         attributes,
         token_type: TokenType::Tag,

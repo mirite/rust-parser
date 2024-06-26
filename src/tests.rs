@@ -7,28 +7,28 @@ mod tests {
         let input = "<div>Hello</div><img/>";
         let expected = vec![
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "img".to_string(),
+                name: Some("img".to_string()),
                 tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
@@ -52,28 +52,28 @@ mod tests {
         let input = "<div data-testid='bonjour' class='w-4'>Hello</div><img>";
         let expected = vec![
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: Some("data-testid='bonjour' class='w-4'".to_string()),
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "img".to_string(),
+                name: Some("img".to_string()),
                 tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
@@ -89,21 +89,21 @@ mod tests {
 
         let expected = vec![
           types::Token {
-              name: "span".to_string(),
+              name: Some("span".to_string()),
               tag_type: Some(types::TagType::Open),
               attributes: Some("style=\"display: block; font-size: 1.5rem; font-weight: 900; text-transform: uppercase; line-height: 0.5rem;\"".to_string()),
               content: None,
               token_type: types::TokenType::Tag,
           },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("of\n                                                        liquid".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "span".to_string(),
+                name: Some("span".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
@@ -119,35 +119,35 @@ mod tests {
 
         let expected = vec![
             types::Token {
-                name: "et_pb_section".to_string(),
+                name: Some("et_pb_section".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "br".to_string(),
+                name: Some("br".to_string()),
                 tag_type: Some(types::TagType::Void),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("World".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "et_pb_section".to_string(),
+                name: Some("et_pb_section".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
@@ -162,21 +162,21 @@ mod tests {
         let input = "[et_pb_section]Two<One[/et_pb_section]";
         let expected = vec![
             types::Token {
-                name: "et_pb_section".to_string(),
+                name: Some("et_pb_section".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Two<One".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "et_pb_section".to_string(),
+                name: Some("et_pb_section".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
@@ -191,28 +191,28 @@ mod tests {
         let input = "Hello<div>World</div>";
         let expected = vec![
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("World".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
@@ -227,32 +227,68 @@ mod tests {
         let input = "<div>World</div>Hello";
         let expected = vec![
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Open),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("World".to_string()),
                 token_type: types::TokenType::Text,
             },
             types::Token {
-                name: "div".to_string(),
+                name: Some("div".to_string()),
                 tag_type: Some(types::TagType::Close),
                 attributes: None,
                 content: None,
                 token_type: types::TokenType::Tag,
             },
             types::Token {
-                name: "text".to_string(),
+                name: Some("text".to_string()),
                 tag_type: None,
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
+            },
+        ];
+        check_result(input, expected);
+    }
+
+    #[test]
+    fn comments() {
+        let input = "<!-- Hello --><div>World</div>";
+        let expected = vec![
+            types::Token {
+                name: None,
+                tag_type: Some(types::TagType::Comment),
+                attributes: None,
+                content: Some(" Hello ".to_string()),
+                token_type: types::TokenType::Tag,
+            },
+            types::Token {
+                name: Some("div".to_string()),
+                tag_type: Some(types::TagType::Open),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
+            },
+            types::Token {
+                name: Some("text".to_string()),
+                tag_type: None,
+                attributes: None,
+                content: Some("World".to_string()),
+                token_type: types::TokenType::Text,
+            },
+            types::Token {
+                name: Some("div".to_string()),
+                tag_type: Some(types::TagType::Close),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
             },
         ];
         check_result(input, expected);
