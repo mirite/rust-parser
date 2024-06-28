@@ -8,9 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/tree.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tree_tests.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tokenizer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer_tests.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +69,7 @@
     "Cargo.Test tests::tests::simple_string.executor": "Debug",
     "Cargo.Test tests::tests::trailing_text.executor": "Debug",
     "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
+    "Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
@@ -87,7 +91,7 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::tests">
+  <component name="RunManager" selected="Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree">
     <configuration name="Test tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -156,8 +160,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::tests::unmatched_tags" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package rust-parser --bin rust-parser tests::tests::unmatched_tags -- --exact" />
+    <configuration name="Test tree_tests::tests::it_can_handle_a_simple_tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tree_tests::tests::it_can_handle_a_simple_tree -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -175,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree" />
         <item itemvalue="Cargo.Test tests::tests" />
         <item itemvalue="Cargo.Test tests::tests::trailing_text" />
         <item itemvalue="Cargo.Test tests::tests::comments" />
         <item itemvalue="Cargo.Test tests::tests::simple_string" />
-        <item itemvalue="Cargo.Test tests::tests::unmatched_tags" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +206,7 @@
       <workItem from="1719184499066" duration="3206000" />
       <workItem from="1719266638518" duration="168000" />
       <workItem from="1719266812148" duration="4162000" />
-      <workItem from="1719531932120" duration="1700000" />
+      <workItem from="1719531932120" duration="4265000" />
     </task>
     <servers />
   </component>

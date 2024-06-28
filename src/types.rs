@@ -1,6 +1,6 @@
 use std::cmp::PartialEq;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum TagType {
     Open,
     Close,
@@ -8,13 +8,13 @@ pub enum TagType {
     Comment,
 }
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum TokenType {
     Tag,
     Text,
 }
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub struct Token {
     pub(crate) name: Option<String>,
     pub(crate) tag_type: Option<TagType>,
