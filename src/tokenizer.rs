@@ -80,15 +80,24 @@ fn create_tag_node(buffer: &Vec<char>) -> Token {
     }
 }
 
+/**
+ * Check if a character is the end of a tag.
+ */
 fn is_tag_close(buffer: &Vec<char>, last_char: char) -> bool {
     let first_char = buffer[0];
     (first_char == '<' && last_char == '>') || (first_char == '[' && last_char == ']')
 }
 
+/**
+ * Check if a character is the start of a tag.
+ */
 fn is_tag_open(character: char) -> bool {
     character == '<' || character == '['
 }
 
+/**
+ * Merge adjacent text nodes into a single text node.
+ */
 fn merge_text_nodes(mut tokens: Vec<Token>) -> Vec<Token> {
     let mut index = 0;
     while index < tokens.len() {
@@ -118,37 +127,45 @@ pub fn tokenize(input: &str) -> Vec<Token> {
         let ch = input.chars().nth(index).unwrap();
         if mode == Mode::Text {
             if is_tag_open(ch) {
-                mode = Mode::Tag;
                 if buffer.len() > 0 {
                     tokens.push(create_text_node(&buffer));
                     buffer.clear();
                 }
+                mode = Mode::Tag;
             }
-        } else if mode == Mode::Tag {
+            buffer.push(ch);
+            index += 1;
+        } else {
             // // A tag was opened, but a new tag was started. Treat the previous tag as text.
             if is_tag_open(ch) {
-                mode = Mode::Text;
                 if buffer.len() > 0 {
                     tokens.push(create_text_node(&buffer));
                     buffer.clear();
                 }
-            } else if is_tag_close(&buffer, ch) {
                 mode = Mode::Text;
-                buffer.push(ch);
-
+            } else if is_tag_close(&buffer, ch) {
+                // The character that is about to be added t
                 index += 1;
+                buffer.push(ch);
                 tokens.push(create_tag_node(&buffer));
                 buffer.clear();
+                mode = Mode::Text;
+            } else {
+                index += 1;
+                buffer.push(ch);
             }
         }
-
-        if index < input.len() {
-            buffer.push(input.chars().nth(index).unwrap());
-        }
-
-        index += 1;
     }
 
+    tokens = close_last_node(tokens, &buffer);
+
+    merge_text_nodes(tokens)
+}
+
+/**
+ * Close the last token node if it is not closed.
+ */
+fn close_last_node(mut tokens: Vec<Token>, buffer: &Vec<char>) -> Vec<Token> {
     if buffer.len() > 0 {
         if is_tag_close(&buffer, buffer[buffer.len() - 1]) {
             tokens.push(create_tag_node(&buffer));
@@ -156,6 +173,5 @@ pub fn tokenize(input: &str) -> Vec<Token> {
             tokens.push(create_text_node(&buffer));
         }
     }
-
-    merge_text_nodes(tokens)
+    tokens
 }

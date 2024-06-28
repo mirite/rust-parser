@@ -188,7 +188,7 @@ mod tests {
 
     #[test]
     fn leading_text() {
-        let input = "Hello<div>World</div>";
+        let input = "Hello<br><div>World</div>";
         let expected = vec![
             types::Token {
                 name: Some("text".to_string()),
@@ -196,6 +196,13 @@ mod tests {
                 attributes: None,
                 content: Some("Hello".to_string()),
                 token_type: types::TokenType::Text,
+            },
+            types::Token {
+                name: Some("br".to_string()),
+                tag_type: Some(types::TagType::Void),
+                attributes: None,
+                content: None,
+                token_type: types::TokenType::Tag,
             },
             types::Token {
                 name: Some("div".to_string()),
