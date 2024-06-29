@@ -8,7 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,36 +53,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Cargo.Run rust-parser.executor": "Run",
-    "Cargo.Test tests::tests.executor": "Run",
-    "Cargo.Test tests::tests::comments.executor": "Debug",
-    "Cargo.Test tests::tests::it_works.executor": "Run",
-    "Cargo.Test tests::tests::simple_string.executor": "Debug",
-    "Cargo.Test tests::tests::trailing_text.executor": "Debug",
-    "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
-    "Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl.localhost/Ubuntu-20.04/home/jesse/rust-parser",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "settings.editor.selected.configurable": "project.scopes",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Cargo.Run rust-parser.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test tests::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test tests::tests::comments.executor&quot;: &quot;Debug&quot;,
+    &quot;Cargo.Test tests::tests::it_works.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test tests::tests::simple_string.executor&quot;: &quot;Debug&quot;,
+    &quot;Cargo.Test tests::tests::trailing_text.executor&quot;: &quot;Debug&quot;,
+    &quot;Cargo.Test tests::tests::unmatched_tags.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu-20.04/home/jesse/rust-parser&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
@@ -176,10 +176,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree" />
-        <item itemvalue="Cargo.Test tests::tests" />
         <item itemvalue="Cargo.Test tests::tests::trailing_text" />
-        <item itemvalue="Cargo.Test tests::tests::comments" />
         <item itemvalue="Cargo.Test tests::tests::simple_string" />
+        <item itemvalue="Cargo.Test tests::tests::comments" />
+        <item itemvalue="Cargo.Test tests::tests" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +202,8 @@
       <workItem from="1719184499066" duration="3206000" />
       <workItem from="1719266638518" duration="168000" />
       <workItem from="1719266812148" duration="4162000" />
-      <workItem from="1719531932120" duration="4716000" />
+      <workItem from="1719531932120" duration="4747000" />
+      <workItem from="1719664493621" duration="78000" />
     </task>
     <servers />
   </component>
