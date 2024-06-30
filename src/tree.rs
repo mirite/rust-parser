@@ -7,7 +7,7 @@ pub struct Tree {
 
 pub fn build_tree(tokens: &Vec<Token>) -> Vec<&Tree> {
     let mut tree: Vec<&Tree> = vec![];
-    let mut open_tags: Vec<&Tree> = vec![];
+    let mut open_tags: Vec<usize> = vec![];
     let mut index = 0;
     while index < tokens.len() {
         let token = &tokens[index];
@@ -28,7 +28,7 @@ pub fn build_tree(tokens: &Vec<Token>) -> Vec<&Tree> {
                     if open_tags.len() == 0 {
                         tree.push(&new_tree)
                     }
-                    open_tags.push(&new_tree);
+                    open_tags.push(index);
                 }
                 Some(TagType::Close) => {
                     // Remove the last open node of the same type from the list.
@@ -39,7 +39,7 @@ pub fn build_tree(tokens: &Vec<Token>) -> Vec<&Tree> {
                 // Add the node as a child of the most recent open.
             }
         }
-        if (token.tag_type == Some(TagType::Open)) {}
+        if token.tag_type == Some(TagType::Open) {}
         index += 1;
     }
 

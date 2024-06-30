@@ -10,6 +10,7 @@ const VOID_TAGS: [&str; 10] = [
     "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta",
 ];
 
+/// Create a new text node from the current buffer.
 fn create_text_node(buffer: &Vec<char>) -> Token {
     Token {
         name: Some(String::from("text")),
@@ -20,6 +21,7 @@ fn create_text_node(buffer: &Vec<char>) -> Token {
     }
 }
 
+/// Gets the tag name from the current buffer that the tokenizer determined to be a tag node.
 fn get_tag_name(buffer: &Vec<char>, first_space: Option<usize>) -> String {
     let first_char = buffer[1];
     let last_char = buffer[buffer.len() - 2];
@@ -39,6 +41,7 @@ fn get_tag_name(buffer: &Vec<char>, first_space: Option<usize>) -> String {
     String::from(name.trim())
 }
 
+/// Create a new tag node from the existing buffer.
 fn create_tag_node(buffer: &Vec<char>) -> Token {
     let first_space = buffer.iter().position(|&x| x == ' ');
     let tag_name = get_tag_name(&buffer, first_space);
@@ -80,24 +83,18 @@ fn create_tag_node(buffer: &Vec<char>) -> Token {
     }
 }
 
-/**
- * Check if a character is the end of a tag.
- */
+/// Check if a character is the end of a tag.
 fn is_tag_close(buffer: &Vec<char>, last_char: char) -> bool {
     let first_char = buffer[0];
     (first_char == '<' && last_char == '>') || (first_char == '[' && last_char == ']')
 }
 
-/**
- * Check if a character is the start of a tag.
- */
+/// Check if a character is the start of a tag.
 fn is_tag_open(character: char) -> bool {
     character == '<' || character == '['
 }
 
-/**
- * Merge adjacent text nodes into a single text node.
- */
+/// Merge adjacent text nodes into a single text node.
 fn merge_text_nodes(mut tokens: Vec<Token>) -> Vec<Token> {
     let mut index = 0;
     while index < tokens.len() {
@@ -115,6 +112,7 @@ fn merge_text_nodes(mut tokens: Vec<Token>) -> Vec<Token> {
     tokens
 }
 
+/// Create a vector of tokens from an input stream.
 pub fn tokenize(input: &str) -> Vec<Token> {
     let mut mode = Mode::Text;
 
@@ -136,7 +134,8 @@ pub fn tokenize(input: &str) -> Vec<Token> {
             buffer.push(ch);
             index += 1;
         } else {
-            // // A tag was opened, but a new tag was started. Treat the previous tag as text.
+            /// If the tokenizer detects the start of a new tag before the existing tag finalizes,
+            /// it should treat the previous contents of the buffer as a text node.
             if is_tag_open(ch) {
                 if buffer.len() > 0 {
                     tokens.push(create_text_node(&buffer));
@@ -162,9 +161,8 @@ pub fn tokenize(input: &str) -> Vec<Token> {
     merge_text_nodes(tokens)
 }
 
-/**
- * Close the last token node if it is not closed.
- */
+/// Create a new node from any remaining characters in the buffer
+/// after the tokenizer loop has finished.
 fn close_last_node(mut tokens: Vec<Token>, buffer: &Vec<char>) -> Vec<Token> {
     if buffer.len() > 0 {
         if is_tag_close(&buffer, buffer[buffer.len() - 1]) {

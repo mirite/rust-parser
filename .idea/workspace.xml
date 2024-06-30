@@ -9,6 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tokenizer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tree.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mirite&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:mirite/rust-parser.git&quot;,
+    &quot;accountId&quot;: &quot;cc096ab2-3a9a-4733-a4b0-9491b25a0b25&quot;
+  }
+}</component>
   <component name="GoLibraries">
     <option name="urls">
       <list>
@@ -38,6 +53,9 @@
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="trq7btb0" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -87,7 +105,7 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree">
+  <component name="RunManager" selected="Cargo.Test tests::tests">
     <configuration name="Test tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -173,21 +191,20 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree" />
-        <item itemvalue="Cargo.Test tests::tests::trailing_text" />
-        <item itemvalue="Cargo.Test tests::tests::simple_string" />
-        <item itemvalue="Cargo.Test tests::tests::comments" />
-        <item itemvalue="Cargo.Test tests::tests" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
   </component>
   <component name="RustfmtProjectSettings">
     <option name="useRustfmt" value="true" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.18071.24" />
+        <option value="bundled-js-predefined-d6986cc7102b-cec29f6fc0a3-JavaScript-IU-242.18071.24" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -204,6 +221,10 @@
       <workItem from="1719266812148" duration="4162000" />
       <workItem from="1719531932120" duration="4747000" />
       <workItem from="1719664493621" duration="78000" />
+      <workItem from="1719664597910" duration="1684000" />
+      <workItem from="1719766595850" duration="78000" />
+      <workItem from="1719766705961" duration="85000" />
+      <workItem from="1719766809599" duration="731000" />
     </task>
     <servers />
   </component>
