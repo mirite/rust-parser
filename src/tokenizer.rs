@@ -134,8 +134,8 @@ pub fn tokenize(input: &str) -> Vec<Token> {
             buffer.push(ch);
             index += 1;
         } else {
-            /// If the tokenizer detects the start of a new tag before the existing tag finalizes,
-            /// it should treat the previous contents of the buffer as a text node.
+            // If the tokenizer detects the start of a new tag before the existing tag finalizes,
+            // it should treat the previous contents of the buffer as a text node.
             if is_tag_open(ch) {
                 if buffer.len() > 0 {
                     tokens.push(create_text_node(&buffer));

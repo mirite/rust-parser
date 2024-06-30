@@ -1,12 +1,30 @@
 use crate::types::{TagType, Token, TokenType};
 
+/// A tree structure that represents the hierarchical structure of the HTML document.
 pub struct Tree {
     pub(crate) children: Vec<Tree>,
     pub(crate) token: Token,
 }
 
-pub fn build_tree(tokens: &Vec<Token>) -> Vec<&Tree> {
-    let mut tree: Vec<&Tree> = vec![];
+/// Adds the token to the last open tag in the tree.
+fn add_to_last_open(mut tree: &Vec<Tree>, open_tags:&Vec<usize>, token:&Token) {
+    if open_tags.len() == 0 {
+        tree.push(Tree {
+            children: vec![],
+            token: token.clone(),
+        })
+    } else {
+    let last_open = open_tags.last().unwrap();
+    tree[*last_open].children.push(Tree {
+        children: vec![],
+        token: token.clone(),
+    });
+    }
+}
+
+/// Create a hierarchical tree from the tokens.
+pub fn build_tree(tokens: &Vec<Token>) -> Vec<Tree> {
+    let mut tree: Vec<Tree> = vec![];
     let mut open_tags: Vec<usize> = vec![];
     let mut index = 0;
     while index < tokens.len() {
@@ -14,20 +32,13 @@ pub fn build_tree(tokens: &Vec<Token>) -> Vec<&Tree> {
         match token.token_type {
             TokenType::Tag => match token.tag_type {
                 Some(TagType::Comment) => {
-                    // Add the node as a child of the most recent open.
+                    add_to_last_open(&tree, &open_tags, token);
                 }
                 Some(TagType::Void) => {
-                    // Add the node as a child of the most recent open.
+                    add_to_last_open(&tree, &open_tags, token);
                 }
                 Some(TagType::Open) => {
-                    let new_tree = Tree {
-                        children: vec![],
-                        token: token.clone(),
-                    };
-
-                    if open_tags.len() == 0 {
-                        tree.push(&new_tree)
-                    }
+                    add_to_last_open(&tree, &open_tags, token);
                     open_tags.push(index);
                 }
                 Some(TagType::Close) => {

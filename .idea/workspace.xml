@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tokenizer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tree.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree.rs" afterDir="false" />
     </list>
@@ -71,58 +70,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Cargo.Run rust-parser.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test tests::tests.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test tests::tests::comments.executor&quot;: &quot;Debug&quot;,
-    &quot;Cargo.Test tests::tests::it_works.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test tests::tests::simple_string.executor&quot;: &quot;Debug&quot;,
-    &quot;Cargo.Test tests::tests::trailing_text.executor&quot;: &quot;Debug&quot;,
-    &quot;Cargo.Test tests::tests::unmatched_tags.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu-20.04/home/jesse/rust-parser&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Cargo.Run rust-parser.executor": "Run",
+    "Cargo.Test tests::tests.executor": "Run",
+    "Cargo.Test tests::tests::comments.executor": "Debug",
+    "Cargo.Test tests::tests::it_works.executor": "Run",
+    "Cargo.Test tests::tests::simple_string.executor": "Debug",
+    "Cargo.Test tests::tests::trailing_text.executor": "Debug",
+    "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
+    "Cargo.Test tree_tests::tests.executor": "Run",
+    "Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "//wsl.localhost/Ubuntu-20.04/home/jesse/rust-parser",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "settings.editor.selected.configurable": "language.rust.cargo.check",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::tests">
-    <configuration name="Test tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package rust-parser --bin rust-parser tests::tests" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Cargo.Test tree_tests::tests">
     <configuration name="Test tests::tests::comments" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tests::comments -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -174,6 +158,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test tree_tests::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tree_tests::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test tree_tests::tests::it_can_handle_a_simple_tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tree_tests::tests::it_can_handle_a_simple_tree -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -191,6 +192,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Test tree_tests::tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
@@ -224,7 +230,8 @@
       <workItem from="1719664597910" duration="1684000" />
       <workItem from="1719766595850" duration="78000" />
       <workItem from="1719766705961" duration="85000" />
-      <workItem from="1719766809599" duration="731000" />
+      <workItem from="1719766809599" duration="972000" />
+      <workItem from="1719767928853" duration="757000" />
     </task>
     <servers />
   </component>
