@@ -1,2 +1,2 @@
-mod tree;
 mod tokenizer;
+mod tree;

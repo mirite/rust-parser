@@ -7,50 +7,55 @@ pub struct Tree {
 }
 
 /// Adds the token to the last open tag in the tree.
-fn add_to_last_open(tree: &mut Vec<Tree>, open_tags:&Vec<usize>, token:&Token) {
-    if open_tags.len() == 0 {
-        tree.push(Tree {
-            children: vec![],
-            token: token.clone(),
-        })
-    } else {
-    let last_open = open_tags.last().unwrap();
-    tree[*last_open].children.push(Tree {
+fn add_to_last_open(tree: &mut Vec<Tree>, open_tags: &mut Vec<&Tree>, token: &Token) -> &Tree {
+    let node = Tree {
         children: vec![],
         token: token.clone(),
-    });
+    };
+    if open_tags.len() == 0 {
+        tree.push(node);
+    } else {
+        let last_open = open_tags.last().unwrap();
+        last_open.children.push(node);
     }
+    &node;
 }
 
 /// Create a hierarchical tree from the tokens.
 pub fn build_tree(tokens: &Vec<Token>) -> Vec<Tree> {
     let mut tree: Vec<Tree> = vec![];
-    let mut open_tags: Vec<usize> = vec![];
+    let mut open_tags: Vec<&Tree> = vec![];
     let mut index = 0;
     while index < tokens.len() {
         let token = &tokens[index];
         match token.token_type {
             TokenType::Tag => match token.tag_type {
                 Some(TagType::Comment) => {
-                    add_to_last_open(&mut tree, &open_tags, token);
+                    add_to_last_open(&mut tree, &mut open_tags, token);
                 }
                 Some(TagType::Void) => {
-                    add_to_last_open(&mut tree, &open_tags, token);
+                    add_to_last_open(&mut tree, &mut open_tags, token);
                 }
                 Some(TagType::Open) => {
-                    add_to_last_open(&mut tree, &open_tags, token);
-                    open_tags.push(index);
+                    let new_tree = add_to_last_open(&mut tree, &mut open_tags, token);
+                    open_tags.push(new_tree.unwrap());
                 }
                 Some(TagType::Close) => {
-                    // Remove the last open node of the same type from the list.
+                    let mut i = open_tags.len() - 1;
+                    for open_tag in open_tags.iter().rev() {
+                        if tokens[*open_tag].name == token.name {
+                            open_tags.remove(i);
+                            break;
+                        }
+                        i -= 1;
+                    }
                 }
                 None => panic!("Tag token missing type"),
             },
             TokenType::Text => {
-                // Add the node as a child of the most recent open.
+                add_to_last_open(&mut tree, &mut open_tags, token);
             }
         }
-        if token.tag_type == Some(TagType::Open) {}
         index += 1;
     }
 
