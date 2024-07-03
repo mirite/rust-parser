@@ -1,8 +1,9 @@
 mod tokenizer;
-mod tokenizer_tests;
 mod tree;
-mod tree_tests;
 mod types;
+
+#[cfg(test)]
+pub mod tests;
 
 fn main() {
     println!("Hello, world!");

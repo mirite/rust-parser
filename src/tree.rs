@@ -7,7 +7,7 @@ pub struct Tree {
 }
 
 /// Adds the token to the last open tag in the tree.
-fn add_to_last_open(mut tree: &Vec<Tree>, open_tags:&Vec<usize>, token:&Token) {
+fn add_to_last_open(tree: &mut Vec<Tree>, open_tags:&Vec<usize>, token:&Token) {
     if open_tags.len() == 0 {
         tree.push(Tree {
             children: vec![],
@@ -32,13 +32,13 @@ pub fn build_tree(tokens: &Vec<Token>) -> Vec<Tree> {
         match token.token_type {
             TokenType::Tag => match token.tag_type {
                 Some(TagType::Comment) => {
-                    add_to_last_open(&tree, &open_tags, token);
+                    add_to_last_open(&mut tree, &open_tags, token);
                 }
                 Some(TagType::Void) => {
-                    add_to_last_open(&tree, &open_tags, token);
+                    add_to_last_open(&mut tree, &open_tags, token);
                 }
                 Some(TagType::Open) => {
-                    add_to_last_open(&tree, &open_tags, token);
+                    add_to_last_open(&mut tree, &open_tags, token);
                     open_tags.push(index);
                 }
                 Some(TagType::Close) => {
