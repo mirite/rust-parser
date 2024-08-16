@@ -9,8 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a5c18e-66cc-4dfe-af26-0975bc296323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/tree.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/tree.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tree.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +82,7 @@
     "Cargo.Test tests::tests::unmatched_tags.executor": "Run",
     "Cargo.Test tests::tree::tests::it_can_handle_a_nested_tree.executor": "Debug",
     "Cargo.Test tests::tree::tests::it_can_handle_a_simple_tree.executor": "Run",
+    "Cargo.Test tree.executor": "Run",
     "Cargo.Test tree::tests.executor": "Run",
     "Cargo.Test tree_tests::tests.executor": "Run",
     "Cargo.Test tree_tests::tests::it_can_handle_a_simple_tree.executor": "Run",
@@ -96,7 +95,7 @@
     "go.import.settings.migrated": "true",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl.localhost/Ubuntu-20.04/home/jesse/rust-parser",
+    "last_opened_file_path": "//wsl.localhost/Ubuntu-20.04/home/jesse/csv-magic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +115,7 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::tree::tests::it_can_handle_a_nested_tree">
+  <component name="RunManager" selected="Cargo.Test tree">
     <configuration name="Test tests::tree::tests::it_can_handle_a_nested_tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tree::tests::it_can_handle_a_nested_tree -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -136,6 +135,23 @@
     </configuration>
     <configuration name="Test tests::tree::tests::it_can_handle_a_simple_tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package rust-parser --bin rust-parser tests::tree::tests::it_can_handle_a_simple_tree -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package rust-parser --bin rust-parser tests::tree" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -185,25 +201,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tree_tests::tests::it_can_handle_a_simple_tree" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package rust-parser --bin rust-parser tree_tests::tests::it_can_handle_a_simple_tree -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tree" />
         <item itemvalue="Cargo.Test tests::tree::tests::it_can_handle_a_nested_tree" />
         <item itemvalue="Cargo.Test tree::tests" />
         <item itemvalue="Cargo.Test tests::tree::tests::it_can_handle_a_simple_tree" />
@@ -220,8 +220,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.18071.24" />
-        <option value="bundled-js-predefined-d6986cc7102b-cec29f6fc0a3-JavaScript-IU-242.18071.24" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -246,7 +246,11 @@
       <workItem from="1719766809599" duration="972000" />
       <workItem from="1719767928853" duration="1638000" />
       <workItem from="1720044510423" duration="23000" />
-      <workItem from="1720044572986" duration="2880000" />
+      <workItem from="1720044572986" duration="2906000" />
+      <workItem from="1720832234564" duration="65000" />
+      <workItem from="1720832372732" duration="7000" />
+      <workItem from="1723299762583" duration="4054000" />
+      <workItem from="1723850411732" duration="1393000" />
     </task>
     <servers />
   </component>
@@ -263,9 +267,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/tree.rs</url>
-          <line>18</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/tests/mod.rs</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
